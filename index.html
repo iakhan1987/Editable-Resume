@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<hr/>
+<body>
+
+<div class="container">
+    <header class="personal-info">
+         <!-- File input to select a new profile picture -->
+         <input type="file" id="profile-pic-input" style="display:none;" accept="image/*">
+        
+         <!-- Profile picture that is clickable to change -->
+         <img src="profile.jpeg" alt="Profile Picture" class="profile-pic" id="profile-pic" onclick="document.getElementById('profile-pic-input').click();">
+        <h1 contenteditable="true">Imtiaz Ahmed</h1>
+        <p contenteditable="true">Email: i.a.khan@hotmail.com | Phone: (+92)333-2492491</p>
+    </header>
+
+    <section>
+        <h2 >Education</h2>
+        <ul>
+            <li contenteditable="true"><strong>University of Karachi(Karachi)</strong> - Masters in Economics </li>
+            <li contenteditable="true"><strong>Oxford Brooks University(London)</strong> - BSc (Hons) Applied Accounting </li>
+            <li contenteditable="true"><strong>Association Of Chertered Certified Accountant</strong> - ACCA </li>
+            <li contenteditable="true"><strong>University of Karachi</strong> - Bachelors Of Commerce </li>
+            
+            
+        </ul>
+    </section>
+
+    <section id="skills-section">
+        <h2>Skills</h2>
+        <ul>
+            <li contenteditable="true">HTML & CSS</li>
+            <li contenteditable="true">JavaScript & TypeScript</li>
+            <li contenteditable="true">React & Next.js</li>
+            <li contenteditable="true">SQL & Databases</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+        <ul>
+            <li contenteditable="true"><strong>Honda Plus (Dealership of Honda)</strong> - Manager Operations and Finance (2018-Present)</li>
+            <li contenteditable="true"><strong> Naseem Al Bahar Textile Trading(Ajman)</strong> - AM Operations and FInance(2015-2018</li>
+        </ul>
+    </section>
+
+    <button id="toggle-skills">Toggle Skills</button>
+
+</div>
+<script>
+    // Handle file input and update profile picture
+    document.getElementById('profile-pic-input').addEventListener('change', function(event) {
+        const file = event.target.files[0]; // Get the selected file
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Set the new image as the source for the profile picture
+                document.getElementById('profile-pic').src = e.target.result;
+            }
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    });
+</script>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
